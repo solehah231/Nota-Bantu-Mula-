@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendidikan Kesihatan Tahun 3 - Bantu Mula Kecederaan Kecil</title>
+  
+  <!-- FontAwesome & Google Fonts -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      user-select: none;
+    }
+    body {
+      font-family: 'Fredoka', sans-serif;
+      margin: 0;
+      padding: 12px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(-45deg, #FFDEE9, #B5FFFC, #E0C3FC, #8EC5FC);
+      background-size: 400% 400%;
+      animation: gradientBG 12s ease infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .slide-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 960px;
+      height: 640px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-radius: 32px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      border: 6px solid #FFF;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-container {
+      display: none;
+      width: 100%;
+      height: 100%;
+      padding: 24px;
+      overflow-y: auto;
+      animation: fadeIn 0.35s ease-in-out forwards;
+    }
+
+    .slide-container.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-step {
+      background: #FFFFFF;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      border: 3px solid #E2E8F0;
+      transition: all 0.25s ease;
+    }
+    .card-step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    }
+
+    .nav-bar {
+      height: 70px;
+      background: #F8FAFC;
+      border-top: 2px solid #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+    }
+
+    .nav-btn {
+      background: #2563EB;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: #1D4ED8;
+      transform: scale(1.05);
+    }
+    .nav-btn:disabled {
+      background: #CBD5E1;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .badge-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    /* Responsive Iframe */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border: 4px solid #E2E8F0;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-wrapper">
+
+    <!-- SLAID 1: TAJUK UTAMA -->
+    <div class="slide-container active" id="slide1" style="background: linear-gradient(135deg, #0EA5E9 0%, #3B82F6 100%); color: white; justify-content: center; align-items: center; text-align: center;">
+      <div class="bg-white/20 p-6 rounded-full mb-4 shadow-inner">
+        <i class="fa-solid fa-kit-medical text-7xl text-yellow-300"></i>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-3 text-yellow-300 drop-shadow-md">BANTU MULA</h1>
+      <h2 class="text-2xl md:text-3xl font-bold text-white drop-shadow">Pendidikan Kesihatan Tahun 3</h2>
+      <p class="text-base md:text-lg font-medium mt-3 text-sky-100 bg-black/20 px-6 py-2 rounded-full">Unit 13: Cara Merawat Kecederaan Kecil / Ringan 🩹🚑</p>
+      
+      <div class="mt-6 bg-white/15 px-6 py-3 rounded-2xl border border-white/30 max-w-lg">
+        <p class="text-yellow-200 font-semibold text-sm">💡 **Objektif Pembelajaran:** Murid dapat mengenal pasti jenis kecederaan kecil dan langkah-langkah rawatan bantu mula yang betul.</p>
+      </div>
+    </div>
+
+    <!-- SLAID 2: APA ITU BANTU MULA & KECEDERAAN KECIL -->
+    <div class="slide-container" id="slide2" style="background: #FEF3C7;">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-amber-900 flex items-center gap-2">
+          <span class="bg-amber-500 text-white px-3 py-1 rounded-xl text-lg">1</span> 🩹 Apa Itu Bantu Mula?
+        </h2>
+        <span class="text-sm font-bold bg-amber-200 text-amber-900 px-4 py-1.5 rounded-full">Pengenalan</span>
+      </div>
+
+      <div class="bg-white p-5 rounded-2xl border-2 border-amber-300 shadow-md mb-4 text-gray-800">
+        <p class="text-lg font-semibold text-amber-900">
+          <i class="fa-solid fa-hand-holding-medical text-amber-500 mr-2 text-xl"></i>
+          <span class="underline decoration-amber-400">Bantu Mula</span> ialah rawatan awal dan serta-merta yang diberikan kepada mangsa yang mengalami kecederaan ringan sebelum mendapat rawatan lanjut.
+        </p>
+      </div>
+
+      <h3 class="text-xl font-bold text-amber-900 mb-3">Tiga Jenis Kecederaan Kecil / Ringan:</h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
+        <!-- Luka Kecil -->
+        <div class="card-step p-4 text-center border-rose-300 bg-rose-50/70">
+          <div class="w-16 h-16 bg-rose-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-3xl shadow">
+            <i class="fa-solid fa-bandage"></i>
+          </div>
+          <h4 class="text-xl font-extrabold text-rose-800 mb-1">Luka Kecil / Melecet</h4>
+          <p class="text-xs text-gray-600 font-medium">Kulit terhiris, tergeser atau tercalar sedikit. Ada sedikit pendarahan.</p>
+        </div>
+
+        <!-- Lebam -->
+        <div class="card-step p-4 text-center border-purple-300 bg-purple-50/70">
+          <div class="w-16 h-16 bg-purple-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-3xl shadow">
+            <i class="fa-solid fa-user-ninja"></i>
+          </div>
+          <h4 class="text-xl font-extrabold text-purple-800 mb-1">Lebam</h4>
+          <p class="text-xs text-gray-600 font-medium">Kulit menjadi kebiruan atau keunguan akibat hentakan objek tumpul.</p>
+        </div>
+
+        <!-- Melecur Ringan -->
+        <div class="card-step p-4 text-center border-amber-300 bg-amber-50/70">
+          <div class="w-16 h-16 bg-amber-500 text-white rounded-full flex items-center justify-center mx-auto mb-3 text-3xl shadow">
+            <i class="fa-solid fa-fire-burner"></i>
+          </div>
+          <h4 class="text-xl font-extrabold text-amber-800 mb-1">Melecur Ringan</h4>
+          <p class="text-xs text-gray-600 font-medium">Kulit memerah atau kemerahan akibat terkena cecair panas / haba.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLAID 3: CARA MERAWAT LUKA KECIL -->
+    <div class="slide-container" id="slide3" style="background: #FFF1F2;">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-2xl font-bold text-rose-900 flex items-center gap-2">
+          <span class="bg-rose-600 text-white px-3 py-1 rounded-xl text-lg">2</span> 🩸 3 Langkah Merawat Luka Kecil
+        </h2>
+        <span class="text-sm font-bold bg-rose-200 text-rose-900 px-4 py-1.5 rounded-full">Panduan Rawatan</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
+        <!-- Langkah 1 -->
+        <div class="card-step p-4 border-rose-300 bg-white">
+          <div class="badge-icon bg-rose-500 mb-3">1</div>
+          <h4 class="text-lg font-bold text-rose-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-faucet-drip text-rose-500"></i> Bersihkan Luka
+          </h4>
+          <p class="text-sm text-gray-700 font-medium">Cuci luka menggunakan **air bersih mengalir** atau cecair antiseptik untuk menghilangkan kotoran.</p>
+        </div>
+
+        <!-- Langkah 2 -->
+        <div class="card-step p-4 border-rose-300 bg-white">
+          <div class="badge-icon bg-rose-500 mb-3">2</div>
+          <h4 class="text-lg font-bold text-rose-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-pump-soap text-rose-500"></i> Sapu Antiseptik
+          </h4>
+          <p class="text-sm text-gray-700 font-medium">Keringkan luka secara perlahan, kemudian sapukan **krim antiseptik** untuk mengelakkan jangkitan kuman.</p>
+        </div>
+
+        <!-- Langkah 3 -->
+        <div class="card-step p-4 border-rose-300 bg-white">
+          <div class="badge-icon bg-rose-500 mb-3">3</div>
+          <h4 class="text-lg font-bold text-rose-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-box-tissue text-rose-500"></i> Balut Luka
+          </h4>
+          <p class="text-sm text-gray-700 font-medium">Tutup dan balut luka dengan menggunakan **plaster** atau kain kasa bersih.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLAID 4: CARA MERAWAT LEBAM & MELECUR RINGAN -->
+    <div class="slide-container" id="slide4" style="background: #F0FDF4;">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-2xl font-bold text-emerald-900 flex items-center gap-2">
+          <span class="bg-emerald-600 text-white px-3 py-1 rounded-xl text-lg">3</span> 🧊 Merawat Lebam & Melecur Ringan
+        </h2>
+        <span class="text-sm font-bold bg-emerald-200 text-emerald-900 px-4 py-1.5 rounded-full">Langkah Cepat</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-auto">
+        <!-- Lebam -->
+        <div class="card-step p-5 border-purple-300 bg-purple-50/60">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-3 bg-purple-600 text-white rounded-2xl text-2xl"><i class="fa-solid fa-snowflake"></i></div>
+            <div>
+              <h3 class="text-xl font-bold text-purple-900">Cara Merawat Lebam:</h3>
+              <p class="text-xs text-purple-700 font-semibold">Tuam dengan ais</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-700 space-y-2 font-medium">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-purple-600 mt-1"></i>
+              <span>Bungkus tiub/ketulan ais dengan tuala bersih.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-purple-600 mt-1"></i>
+              <span>Tuam pada bahagian lebam selama **10 - 15 minit**.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-purple-600 mt-1"></i>
+              <span>Tuaman ais mengurangkan bengkak dan sakit.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Melecur Ringan -->
+        <div class="card-step p-5 border-amber-300 bg-amber-50/60">
+          <div class="flex items-center gap-3 mb-3">
+            <div class="p-3 bg-amber-600 text-white rounded-2xl text-2xl"><i class="fa-solid fa-shower"></i></div>
+            <div>
+              <h3 class="text-xl font-bold text-amber-900">Cara Merawat Melecur Ringan:</h3>
+              <p class="text-xs text-amber-700 font-semibold">Alirkan air paip</p>
+            </div>
+          </div>
+          <ul class="text-sm text-gray-700 space-y-2 font-medium">
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-amber-600 mt-1"></i>
+              <span>Lalukan air paip yang bersih pada bahagian yang melecur selama **10-15 minit**.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-xmark text-red-500 mt-1"></i>
+              <span>**JANGAN** letak ubat gigi, minyak, atau ais secara terus!</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fa-solid fa-check text-amber-600 mt-1"></i>
+              <span>Sapu krim khas melecur jika ada dan beritahu guru/ibu bapa.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLAID 5: VIDEO TUTORIAL BANTU MULA -->
+    <div class="slide-container" id="slide5" style="background: #EFF6FF;">
+      <div class="flex justify-between items-center mb-3">
+        <h2 class="text-2xl font-bold text-blue-900 flex items-center gap-2">
+          <span class="bg-blue-600 text-white px-3 py-1 rounded-xl text-lg">4</span> 🎬 Video Tutorial Bantu Mula
+        </h2>
+        <span class="text-sm font-bold bg-blue-200 text-blue-900 px-4 py-1.5 rounded-full">Tonton & Pelajari</span>
+      </div>
+
+      <div class="flex flex-col my-auto gap-3">
+        <p class="text-sm font-semibold text-blue-800 text-center">Tonton video penerangan di bawah tentang 3 langkah mudah rawat luka kecil:</p>
+        
+        <!-- Embedded YouTube Video -->
+        <div class="video-container">
+          <iframe 
+            src="https://www.youtube.com/embed/Gp33d0ITIb4" 
+            title="Video Bantu Mula Pendidikan Kesihatan Tahun 3" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLAID 6: RUMUSAN & PESANAN KESELAMATAN -->
+    <div class="slide-container" id="slide6" style="background: #F3E8FF;">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-2xl font-bold text-purple-900 flex items-center gap-2">
+          <span class="bg-purple-600 text-white px-3 py-1 rounded-xl text-lg">5</span> 🌟 Pesanan Kesihatan & Rumusan
+        </h2>
+        <span class="text-sm font-bold bg-purple-200 text-purple-900 px-4 py-1.5 rounded-full">Ingatan Penting</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-auto">
+        <div class="card-step p-5 border-purple-300 bg-white">
+          <h3 class="text-lg font-bold text-purple-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-bullhorn text-purple-600"></i> Maklumkan Kepada Orang Dewasa!
+          </h3>
+          <p class="text-sm text-gray-700 font-medium leading-relaxed">
+            Jika anda atau rakan mengalami kecederaan di sekolah, **segera beritahu guru**. Jika di rumah, **segera beritahu ibu bapa atau orang dewasa**.
+          </p>
+        </div>
+
+        <div class="card-step p-5 border-purple-300 bg-white">
+          <h3 class="text-lg font-bold text-purple-900 mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-shield-halved text-purple-600"></i> Utamakan Kebersihan
+          </h3>
+          <p class="text-sm text-gray-700 font-medium leading-relaxed">
+            Pastikan tangan dibasuh sebelum merawat sebarang luka untuk mengelakkan daripada terkena kuman dan jangkitan.
+          </p>
+        </div>
+      </div>
+
+      <div class="bg-purple-600 text-white p-4 rounded-2xl text-center mt-3 shadow-md">
+        <p class="text-lg font-extrabold">Tahniah! Anda kini sudah faham cara melakukan bantu mula! 🎉</p>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+      <button id="prevBtn" class="nav-btn" onclick="changeSlide(-1)">
+        <i class="fa-solid fa-arrow-left mr-2"></i> Sebelum
+      </button>
+
+      <span id="slideIndicator" class="font-bold text-gray-700 text-lg">Slaid 1 / 6</span>
+
+      <button id="nextBtn" class="nav-btn" onclick="changeSlide(1)">
+        Seterusnya <i class="fa-solid fa-arrow-right ml-2"></i>
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 6;
+
+    function showSlide(index) {
+      for (let i = 1; i <= totalSlides; i++) {
+        const slide = document.getElementById(`slide${i}`);
+        if (slide) {
+          slide.classList.remove('active');
+        }
+      }
+
+      const activeSlide = document.getElementById(`slide${index}`);
+      if (activeSlide) {
+        activeSlide.classList.add('active');
+      }
+
+      document.getElementById('slideIndicator').innerText = `Slaid ${index} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = index === 1;
+      document.getElementById('nextBtn').disabled = index === totalSlides;
+    }
+
+    function changeSlide(direction) {
+      currentSlide += direction;
+      if (currentSlide < 1) currentSlide = 1;
+      if (currentSlide > totalSlides) currentSlide = totalSlides;
+      showSlide(currentSlide);
+    }
+
+    window.onload = function() {
+      showSlide(1);
+    };
+  </script>
+</body>
+</html>
